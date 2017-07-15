@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -653,7 +656,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Weathered" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -676,18 +679,175 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--WeatherVC-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherVC" id="XfG-lQ-9wD" customClass="WeatherVC" customModule="Weathered" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-nb-5Ky">
+                                <rect key="frame" x="20" y="185" width="360" height="195"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZEY-oh-ype">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="195"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiP-Ju-pZD">
+                                                <rect key="frame" x="-2" y="158" width="128" height="37"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Todays Date" id="DPV-2J-byW">
+                                                    <font key="font" size="22" name="AvenirNext-Regular"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMM-3s-A4g">
+                                                <rect key="frame" x="-2" y="45" width="141" height="105"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="100°" id="bds-Ct-dGt">
+                                                    <font key="font" size="64" name="AvenirNext-Regular"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70f-LN-6y9">
+                                                <rect key="frame" x="-2" y="0.0" width="139" height="37"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tel Aviv Israel" id="ErB-qO-7S3">
+                                                    <font key="font" size="22" name="AvenirNext-Regular"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w70-4j-AQa">
+                                        <rect key="frame" x="145" y="0.0" width="215" height="145"/>
+                                        <subviews>
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9JH-m5-f3v">
+                                                <rect key="frame" x="58" y="45" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="WB0-UO-BcO"/>
+                                                    <constraint firstAttribute="height" constant="100" id="oxr-LR-fZ4"/>
+                                                </constraints>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Clear" id="WWP-8W-01P"/>
+                                            </imageView>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXF-JS-Vxf">
+                                                <rect key="frame" x="79" y="0.0" width="58" height="37"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Clear" id="PoC-cw-t8S">
+                                                    <font key="font" size="22" name="AvenirNext-Regular"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-cg-rOD">
+                                <rect key="frame" x="332" y="3" width="66" height="32"/>
+                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vg6-AZ-6TQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="quitBtnClick:" target="XfG-lQ-9wD" id="NIL-bH-1KJ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bw8-qi-O26">
+                                <rect key="frame" x="2" y="3" width="222" height="32"/>
+                                <buttonCell key="cell" type="push" title="Powerd by OpenweatherdMap" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5e2-h6-NBd">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="poweredByBtnClick:" target="XfG-lQ-9wD" id="Vhb-hQ-djI"/>
+                                </connections>
+                            </button>
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-WK-OcN">
+                                <rect key="frame" x="20" y="40" width="360" height="125"/>
+                                <clipView key="contentView" drawsBackground="NO" id="CaQ-DA-x0j">
+                                    <rect key="frame" x="0.0" y="0.0" width="360" height="125"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="kpS-cR-KZw">
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="125"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="Dkl-88-J70">
+                                                <size key="itemSize" width="125" height="125"/>
+                                                <edgeInsets key="sectionInset" left="10" right="10" top="0.0" bottom="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" red="0.1723569184" green="0.15996712169999999" blue="0.83603664339999995" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="n2V-zJ-uLL"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="UXQ-PG-rAO">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="3zu-3N-fgq">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wvv-nb-5Ky" secondAttribute="trailing" constant="20" id="Alf-k3-HkR"/>
+                            <constraint firstItem="bw8-qi-O26" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="Dn4-KG-jys"/>
+                            <constraint firstAttribute="trailing" secondItem="zfj-cg-rOD" secondAttribute="trailing" constant="8" id="DsB-GP-lQv"/>
+                            <constraint firstItem="wvv-nb-5Ky" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="S4y-UT-qOL"/>
+                            <constraint firstItem="5ya-WK-OcN" firstAttribute="top" secondItem="wvv-nb-5Ky" secondAttribute="bottom" constant="20" id="Ylr-Kb-ZaI"/>
+                            <constraint firstAttribute="trailing" secondItem="5ya-WK-OcN" secondAttribute="trailing" constant="20" id="iTw-gP-ZQQ"/>
+                            <constraint firstAttribute="bottom" secondItem="bw8-qi-O26" secondAttribute="bottom" constant="10" id="lpL-gw-wtb"/>
+                            <constraint firstItem="5ya-WK-OcN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="lzZ-EH-tUG"/>
+                            <constraint firstItem="wvv-nb-5Ky" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="wgA-AH-8Kh"/>
+                            <constraint firstAttribute="bottom" secondItem="zfj-cg-rOD" secondAttribute="bottom" constant="10" id="yTE-JV-rAP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="kpS-cR-KZw" id="rhV-Vn-D80"/>
+                        <outlet property="dateLbl" destination="aiP-Ju-pZD" id="ibq-Gm-yAl"/>
+                        <outlet property="locationLbl" destination="70f-LN-6y9" id="Bwb-VA-9mH"/>
+                        <outlet property="poweredByBtn" destination="bw8-qi-O26" id="UXq-iC-eeY"/>
+                        <outlet property="quitBtn" destination="zfj-cg-rOD" id="MDb-BR-rBI"/>
+                        <outlet property="tempLbl" destination="zMM-3s-A4g" id="eLe-Fv-0fA"/>
+                        <outlet property="weatherConditionLbl" destination="cXF-JS-Vxf" id="Nlj-Mf-9Zj"/>
+                        <outlet property="weatherImage" destination="9JH-m5-f3v" id="h7V-XK-egT"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Clear" width="107" height="107"/>
+    </resources>
 </document>
